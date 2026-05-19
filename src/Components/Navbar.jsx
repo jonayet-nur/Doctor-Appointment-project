@@ -3,9 +3,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { authClient } from "@/lib/auth-client";
+import { Avatar } from "@heroui/react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+   const { 
+        data: session, 
+       
+    } = authClient.useSession() 
+    const user = session?.user
+    console.log(user)
 
   return (
     <header className="sticky top-0 z-50   w-full">
@@ -51,15 +59,37 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop Buttons */}
+       
+      
+      
+      
         <div className="hidden items-center gap-4 md:flex">
-          <button className="rounded-full border border-[#0b8fac] px-5 py-2 font-semibold text-[#0b8fac] transition-all duration-300 hover:bg-[#0b8fac] hover:text-white">
+        {user?<>
+       
+          <Avatar>
+        <Avatar.Image alt="John Doe" src="https://img.heroui.chat/image/avatar?w=400&h=400&u=3" />
+        <Avatar.Fallback>JD</Avatar.Fallback>
+      </Avatar>
+       
+        <li></li>
+        </>:
+        <>
+        <Link href={"/login"}>
+            <button className="rounded-full border border-[#0b8fac] px-5 py-2 font-semibold text-[#0b8fac] transition-all duration-300 hover:bg-[#0b8fac] hover:text-white">
             Login
           </button>
+        </Link>
 
+         <Link href={"/sign-up"}>
           <button className="rounded-full bg-linear-to-r from-[#0b8fac] to-purple-600 px-5 py-2 font-semibold text-white shadow-lg">
             Register
           </button>
+         </Link>
+        </>
+        }
         </div>
+       
+       
 
         {/* Mobile Menu Button */}
         <button
@@ -111,9 +141,11 @@ export default function Navbar() {
         </ul>
 
         <div className="mt-6 flex flex-col gap-3">
-          <button className="rounded-full border border-[#0b8fac] py-2 font-semibold text-[#0b8fac] transition-all duration-300 hover:bg-[#0b8fac] hover:text-white">
-            Login
-          </button>
+       <Link href={"/login"}>
+        <button className="rounded-full border border-[#0b8fac] py-2 font-semibold text-[#0b8fac] transition-all duration-300 hover:bg-[#0b8fac] hover:text-white">
+          Login
+        </button>
+       </Link>
 
           <button className="rounded-full bg-linear-to-r from-[#0b8fac] to-purple-600 py-2 font-semibold text-white shadow-lg">
             Register
