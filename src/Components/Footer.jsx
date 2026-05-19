@@ -37,7 +37,7 @@ export default function Footer() {
 
             <div>
               <h2 className="text-2xl font-bold tracking-wide">
-                Doctor<span className="text-cyan-400">Appointment</span>
+                Doctor<span className="text-cyan-400">Appoint</span>
               </h2>
               <p className="text-sm text-gray-600">
                 Smart Healthcare Platform

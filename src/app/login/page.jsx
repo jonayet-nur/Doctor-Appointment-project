@@ -45,14 +45,17 @@ export default function LoginInPage() {
     
 
     console.log({data, error})
+  
+
+    if (error) {
+  toast.error("Login Failed");
+} else {
+  toast.success("Login Successfully");
+}
+    
     if(data){
         redirect('/')
     }
-   
-    //    if(error) {
-    //       toast.error('Login Failed')
-          
-    //    }
 
   };
 

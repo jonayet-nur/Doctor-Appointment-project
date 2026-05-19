@@ -1,6 +1,6 @@
 
 "use client";
-import { authClient } from "@/lib/auth-client";
+import { authClient, signOut } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {
   Button,
@@ -37,27 +37,33 @@ export default function SignUpPage() {
         password,
         image,
     })
-    
+   
+
+     if(!error) {
+       toast.success('SignUp Successfully')
+        // router.push('/')
+         
+    }
 
     console.log({data, error})
     if(data){
-        redirect('/login')
+       redirect('/login')
+                                                               
     }
+   
 
-    // if(!error) {
-    //    toast.success('SignUp Successfully')
-    //     router.push('/')
-    // }
+
+   
     
 
   };
 
 
-//   const handleGoogle = async () => {
-//   await authClient.signIn.social({
-//     provider: "google",
-//   });
-// };
+  const handleGoogle = async () => {
+  await authClient.signIn.social({
+    provider: "google",
+  });
+};
   return (
     
     <Card className="max-w-md  md:mx-auto my-10 p-8 shadow-xl border rounded-2xl mx-5">
@@ -129,9 +135,6 @@ export default function SignUpPage() {
       Create Account
     </Button>
 
-    {/* <Button type="reset" variant="secondary" className="w-full">
-      Reset
-    </Button> */}
   </Form>
 
   {/* Divider */}
@@ -143,7 +146,7 @@ export default function SignUpPage() {
 
   {/* Google Button */}
   <Button
-    // onClick={handleGoogle}
+    onClick={handleGoogle}
     variant="outline"
     className="w-full flex items-center justify-center gap-2"
   >

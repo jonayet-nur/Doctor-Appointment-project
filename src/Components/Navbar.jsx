@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
-import { Avatar } from "@heroui/react";
+import { Avatar, Button } from "@heroui/react";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -14,6 +14,10 @@ export default function Navbar() {
     } = authClient.useSession() 
     const user = session?.user
     console.log(user)
+
+    const handleSignOut = async()=>{
+      await authClient.signOut();
+    }
 
   return (
     <header className="sticky top-0 z-50   w-full">
@@ -31,8 +35,8 @@ export default function Navbar() {
 
           <h1 className="text-2xl font-extrabold text-[#0b8fac]">
             Doctor{" "}
-            <span className="text-lg text-purple-600">
-              Appointment
+            <span className="text-lg text-[#0b8fac]">
+              Appoint
             </span>
           </h1>
         </div>
@@ -67,11 +71,11 @@ export default function Navbar() {
         {user?<>
        
           <Avatar>
-        <Avatar.Image alt="John Doe" src="https://img.heroui.chat/image/avatar?w=400&h=400&u=3" />
-        <Avatar.Fallback>JD</Avatar.Fallback>
+        <Avatar.Image alt="John Doe" src={user?.image} />
+        <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
       </Avatar>
        
-        <li></li>
+       <Button onClick={handleSignOut} variant="danger">Signout</Button>
         </>:
         <>
         <Link href={"/login"}>
