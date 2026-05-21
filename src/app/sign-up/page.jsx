@@ -74,7 +74,7 @@ export default function SignUpPage() {
       Create Account
     </h1>
     <p className="text-sm text-gray-500 mt-2">
-      Join <span className="font-semibold text-primary">Doctor-Appointment</span> to explore and manage your appointments.
+      Join <span className="font-semibold text-[#0b8fac]">Doctor-Appointment</span> to explore and manage your appointments.
     </p>
   </div>
 
@@ -157,7 +157,7 @@ export default function SignUpPage() {
   {/* Footer */}
   <p className="text-center text-sm text-gray-500 mt-6">
     Already have an account?{" "}
-    <Link href="/login" className="text-primary font-medium cursor-pointer hover:underline">
+    <Link href="/login" className="text-[#0b8fac] font-medium cursor-pointer hover:underline">
       Login
     </Link>
   </p>

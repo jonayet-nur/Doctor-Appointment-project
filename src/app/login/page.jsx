@@ -12,6 +12,7 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
@@ -134,6 +135,14 @@ export default function LoginInPage() {
               <FcGoogle className="text-lg " />
               Continue with Google
             </Button>
+
+            {/* Footer */}
+              <p className="text-center text-sm text-gray-500 mt-6">
+                Create an Account{" "}
+                <Link href="/sign-up" className="text-[#0b8fac] font-medium cursor-pointer hover:underline">
+                  Sign Up
+                </Link>
+              </p>
     </Card>
   );
 }
