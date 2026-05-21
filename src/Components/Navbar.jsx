@@ -18,10 +18,10 @@ export default function Navbar() {
     const handleSignOut = async()=>{
       await authClient.signOut();
     }
-
+// max-w-7xl
   return (
     <header className="sticky top-0 z-50   w-full">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between rounded-3xl border border-white/20 bg-white/10 px-6 py-4 shadow-2xl backdrop-blur-xl">
+      <nav className="mx-auto flex  items-center justify-between rounded-3xl border border-white/20 bg-white/10 px-6 py-4 shadow-2xl backdrop-blur-xl">
         
         {/* Logo */}
         <div className="flex items-center gap-3">
@@ -50,7 +50,7 @@ export default function Navbar() {
           </li>
 
           <li>
-            <Link href="/appointments" className="hover:text-[#0b8fac]">
+            <Link href="/all-appoint" className="hover:text-[#0b8fac]">
               All Appointment
             </Link>
           </li>
@@ -75,7 +75,7 @@ export default function Navbar() {
         <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
       </Avatar>
        
-       <Button onClick={handleSignOut} variant="danger">Signout</Button>
+       <Button onClick={handleSignOut} className="bg-[#0b8fac]">Signout</Button>
         </>:
         <>
         <Link href={"/login"}>

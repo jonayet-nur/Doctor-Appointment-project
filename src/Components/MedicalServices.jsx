@@ -41,8 +41,8 @@ const services = [
 
 export default function MedicalServices() {
   return (
-  <div className="w-11/12 mx-auto">
-      <section className="relative overflow-hidden rounded-[30px]">
+  <div className="my-10 w-11/12 mx-auto">
+      <section className="relative overflow-hidden rounded-[10px]">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
@@ -61,8 +61,8 @@ export default function MedicalServices() {
           <span className="rounded-full bg-white/20 px-4 py-1 text-sm text-white backdrop-blur-md">
             Service
           </span>
-
-          <h2 className="mt-4 max-w-xl text-3xl font-bold text-[#0b8fac] md:text-5xl">
+{/* [#0b8fac] */}
+          <h2 className="mt-4 max-w-xl text-3xl font-bold text-white md:text-5xl">
             Our Medical Services
           </h2>
         </div>
