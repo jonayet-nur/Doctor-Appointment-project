@@ -36,7 +36,7 @@ const slides = [
 
 export default function HeroBanner() {
   return (
-   <div className=" my-6">
+   <div className=" mt-15 mb-6">
      <section className="relative overflow-hidden rounded-[20px]">
       <Swiper
         modules={[Autoplay, Pagination]}

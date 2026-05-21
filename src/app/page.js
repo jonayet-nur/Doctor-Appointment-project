@@ -1,12 +1,14 @@
 import HeroBanner from "@/Components/Banner";
 import MedicalServices from "@/Components/MedicalServices";
 import MedicalStats from "@/Components/MedicalStats";
+import TopRatedDoctor from "@/Components/TopRatedDoctor";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <>
     <HeroBanner></HeroBanner>
+    <TopRatedDoctor></TopRatedDoctor>
     <MedicalServices></MedicalServices>
     <MedicalStats></MedicalStats>
     </>
