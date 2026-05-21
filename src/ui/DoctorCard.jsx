@@ -8,7 +8,7 @@ export default function DoctorCard({ doctor }) {
     <article className="group relative flex flex-col justify-between bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden ">
       
       {/* Image & Badge Header Section */}
-      <div className="relative h-100 w-full bg-slate-50 overflow-hidden">
+      <div className="relative h-64 md:h-72 lg:h-80 w-full bg-slate-50 overflow-hidden">
         <Image
           src={doctor.image}
           alt={`Dr. ${doctor.name}, ${doctor.specialty}`}
@@ -62,12 +62,7 @@ export default function DoctorCard({ doctor }) {
           </div>
         </div>
 
-        {/* Completed Availability Preview */}
-        {/* <div className="flex items-center gap-2 bg-emerald-50/80 border border-emerald-100 rounded-xl p-2.5 mb-5 text-xs text-emerald-700 font-bold">
-          <FaCalendarCheck className="text-emerald-500 text-sm shrink-0" />
-          <span>Available: {doctor.nextAvailable || 'Tomorrow'}</span>
-        </div> */}
-
+       
         {/* Card Footer: Pricing & Action */}
         <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto gap-4">
           <div className="shrink-0">
@@ -79,8 +74,8 @@ export default function DoctorCard({ doctor }) {
           </div>
 
           <Link 
-            href={`/doctors/${doctor.id}`}
-            className="grow px-5 py-2.5 bg-[#0b8fac] hover:bg-[#075b6b] text-white text-sm font-bold rounded-xl transition-all duration-200 shadow-md hover:shadow-blue-200 active:scale-[0.97] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center justify-center text-center whitespace-nowrap"
+            href={`/all-appoint/${doctor._id}`}
+            className="grow px-5 py-2.5 bg-[#0b8fac] hover:bg-[#075b6b] text-white text-sm font-bold rounded-xl transition-all duration-200 shadow-md hover:shadow-blue-200 active:scale-[0.97] focus:outline-none focus:ring-2 focus:ring-[#0b8fac] focus:ring-offset-2 flex items-center justify-center text-center whitespace-nowrap"
             aria-label={`Book appointment with Dr. ${doctor.name}`}
           >
            View Details

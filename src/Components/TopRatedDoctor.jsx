@@ -11,7 +11,7 @@ const TopRatedDoctor = async() => {
         <p className="text-center text-gray-600 text-xl mb-8 font-semibold">
             Highly recommended professionals by our patient community
         </p>
-        <div className="grid grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {
                 topDoctors.map(doctor=><DoctorCard key={doctor._id} doctor={doctor}></DoctorCard>)
             }
