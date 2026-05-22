@@ -226,14 +226,24 @@ export default function UpdateAppointmentModal({ item ,appointments,
     const form = e.target;
 
     const updatedAppointment = {
-      pname: form.patientName.value,
+      pname: form.pname.value,
       phone: form.phone.value,
-      email: form.userEmail.value,
-      date: form.appointmentDate.value,
-      dname: form.doctorName.value,
+      email: form.email.value,
+      date: form.date.value,
+      dname: form.dname.value,
       gender: form.gender.value,
-      time: form.appointmentTime.value,
+      time: form.time.value,
     };
+
+//     const updatedAppointment = {
+//   patientName: form.patientName.value,
+//   phone: form.phone.value,
+//   userEmail: form.userEmail.value,
+//   appointmentDate: form.appointmentDate.value,
+//   doctorName: form.doctorName.value,
+//   gender: form.gender.value,
+//   appointmentTime: form.appointmentTime.value,
+// };
 
     try {
       const response = await fetch(
@@ -319,7 +329,8 @@ export default function UpdateAppointmentModal({ item ,appointments,
 
                 <input
                   type="text"
-                  name="patientName"
+                  // name="patientName"
+                  name="pname"
                  
                   className="w-full rounded-xl border p-3 outline-none"
                 />
@@ -347,7 +358,8 @@ export default function UpdateAppointmentModal({ item ,appointments,
 
                 <input
                   type="email"
-                  name="userEmail"
+                  // name="userEmail"
+                  name="email"
                   
                   className="w-full rounded-xl border p-3 outline-none"
                 />
@@ -361,7 +373,8 @@ export default function UpdateAppointmentModal({ item ,appointments,
 
                 <input
                   type="date"
-                  name="appointmentDate"
+                  // name="appointmentDate"
+                  name="date"
                   
                   className="w-full rounded-xl border p-3 outline-none"
                 />
@@ -376,7 +389,8 @@ export default function UpdateAppointmentModal({ item ,appointments,
                 <input
                 readOnly
                   type="text"
-                  name="doctorName"
+                  // name="doctorName"
+                  name="dname"
                   defaultValue={dname}
                   className="w-full rounded-xl border p-3 outline-none"
                 />
@@ -406,7 +420,8 @@ export default function UpdateAppointmentModal({ item ,appointments,
 
                 <input
                   type="text"
-                  name="appointmentTime"
+                  // name="appointmentTime"
+                  name="time"
                   
                   className="w-full rounded-xl border p-3 outline-none"
                 />
