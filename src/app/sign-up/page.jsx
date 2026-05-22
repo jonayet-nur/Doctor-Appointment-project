@@ -18,6 +18,7 @@ import { CgGoogle } from "react-icons/cg";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 
+
 export default function SignUpPage() {
 
     const router = useRouter()
@@ -47,15 +48,9 @@ export default function SignUpPage() {
 
     console.log({data, error})
     if(data){
-       redirect('/login')
-                                                               
+       redirect('/login')                                                          
     }
    
-
-
-   
-    
-
   };
 
 
