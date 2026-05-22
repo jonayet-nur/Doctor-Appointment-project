@@ -10,12 +10,20 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import AppointmentModal, { WithForm } from "@/Components/AppointmentModal";
+import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
 
 const AllAppointDetailsPage = async ({ params }) => {
   const { id } = await params;
-
+  const { token } = await auth.api.getToken({
+    headers: await headers()
+  })
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/all-appointment/${id}`
+    `${process.env.NEXT_PUBLIC_API_URL}/all-appointment/${id}`,{
+      headers:{
+        authorization: `Bearer ${token}` 
+      }
+    }
     // {
     //   cache: "no-store",
     // }

@@ -1,8 +1,11 @@
 import DoctorList from "@/Components/DoctorSearch"
+// import { auth } from "@/lib/auth"
 import DoctorCard from "@/ui/DoctorCard"
+// import { headers } from "next/headers"
 
 
 const AllAppointPage = async () => {
+     
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/all-appointment`)
     const allAppoint = await res.json()
     console.log(allAppoint)

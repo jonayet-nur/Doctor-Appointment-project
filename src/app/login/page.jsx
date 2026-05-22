@@ -20,11 +20,11 @@ import { toast } from "react-toastify";
 
 export default function LoginInPage() {
 
-//   const handleGoogleLogin = async () => {
-//   await authClient.signIn.social({
-//     provider: "google",
-//   });
-// };
+  const handleGoogleLogin = async () => {
+  await authClient.signIn.social({
+    provider: "google",
+  });
+};
     // const router = useRouter()
 
   const onSubmit = async (e) => {
@@ -128,7 +128,7 @@ export default function LoginInPage() {
       </Form>
 
            <Button
-            //   onClick={handleGoogleLogin}
+              onClick={handleGoogleLogin}
               variant="outline"
               className="lg:w-full w-80 mx-auto flex items-center justify-center gap-2"
             >
