@@ -25,6 +25,8 @@ import {
   Clock3,
   BriefcaseMedical,
 } from "lucide-react";
+import Link from "next/link";
+import AppointmentModal, { WithForm } from "@/Components/AppointmentModal";
 
 const AllAppointDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -169,9 +171,12 @@ const AllAppointDetailsPage = async ({ params }) => {
 
         {/* Button */}
         <div className="p-6 pt-0">
-          <button className="w-full rounded-2xl bg-[#0b8fac] py-4 text-lg font-semibold text-white transition hover:bg-cyan-800">
+        
+          {/* <button className="w-full rounded-2xl bg-[#0b8fac] py-4 text-lg font-semibold text-white transition hover:bg-cyan-800">
             Book Your Appointment
-          </button>
+          </button> */}
+         <AppointmentModal doctor={doctor}></AppointmentModal>
+         {/* <WithForm doctor={doctor}></WithForm> */}
 
           <p className="mt-3 text-center text-sm text-gray-400">
             No payment required until you visit the hospital
