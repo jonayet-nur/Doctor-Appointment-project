@@ -143,7 +143,7 @@ const DashboardPage = () => {
           </div>
         </div>
 
-        <div className="mt-6 flex gap-3">
+        <div className="mt-6 flex gap-3 ">
         {/* update button components */}
         <UpdateAppointmentModal item={item}  appointments={appointments}
   setAppointments={setAppointments}></UpdateAppointmentModal>

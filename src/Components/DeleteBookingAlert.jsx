@@ -41,7 +41,7 @@ export function DeleteBookingAlert({bookingId}) {
       <AlertDialogTrigger>
         <Button
           variant="danger"
-          className="flex items-center justify-center gap-2"
+          className="flex items-center justify-center gap-2 mt-1"
         >
           <Trash2 size={16} />
           Delete

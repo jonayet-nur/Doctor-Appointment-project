@@ -201,6 +201,7 @@
 
 import { useState } from "react";
 import { Edit } from "lucide-react";
+import { toast } from "react-toastify";
 
 export default function UpdateAppointmentModal({ item ,appointments,
   setAppointments }) {
@@ -267,7 +268,7 @@ export default function UpdateAppointmentModal({ item ,appointments,
 
   setAppointments(updatedList);
 
-  alert("Appointment Updated Successfully");
+  toast.success("Appointment Updated Successfully");
 
   setOpen(false);
 }
@@ -281,7 +282,7 @@ export default function UpdateAppointmentModal({ item ,appointments,
       {/* Update Button */}
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-2 rounded-xl bg-cyan-600 px-5 py-3 text-white"
+        className="flex items-center justify-center gap-2 rounded-xl bg-cyan-600 px-5 py-3 text-white"
       >
         <Edit size={16} />
         Update

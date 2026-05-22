@@ -63,9 +63,6 @@ export default function Navbar() {
         </ul>
 
         {/* Desktop Buttons */}
-       
-      
-      
       
         <div className="hidden items-center gap-4 md:flex">
         {user?<>
@@ -144,18 +141,45 @@ export default function Navbar() {
           </li>
         </ul>
 
-        <div className="mt-6 flex flex-col gap-3">
-       <Link href={"/login"}>
-        <button className="rounded-full border border-[#0b8fac] py-2 font-semibold text-[#0b8fac] transition-all duration-300 hover:bg-[#0b8fac] hover:text-white">
+        <div className="mt-6 flex  gap-3 flex-row items-center justify-center">
+             {user?<>
+       
+          <Avatar >
+        <Avatar.Image alt="John Doe" src={user?.image} />
+        <Avatar.Fallback>{user?.name[0]}</Avatar.Fallback>
+      </Avatar>
+       
+       <Button onClick={handleSignOut} className="bg-[#0b8fac]">Signout</Button>
+        </>:
+        <>
+      <Link href={"/login"} className="w-full">
+         <button className=" w-full rounded-full border border-[#0b8fac] py-2 font-semibold text-[#0b8fac] transition-all duration-300 hover:bg-[#0b8fac] hover:text-white">
           Login
-        </button>
-       </Link>
+         </button>
+        </Link>
 
-          <button className="rounded-full bg-linear-to-r from-[#0b8fac] to-purple-600 py-2 font-semibold text-white shadow-lg">
-            Register
+          <Link href={'/sign-up'} className="w-full">
+           <button className=" w-full rounded-full bg-linear-to-r from-[#0b8fac] to-purple-600 py-2 font-semibold text-white shadow-lg">
+             Register
           </button>
+          </Link>
+        </>
+        }
         </div>
       </div>
     </header>
   );
 }
+
+
+  // <Link href={"/login"} className="w-full">
+  //       <button className=" w-full rounded-full border border-[#0b8fac] py-2 font-semibold text-[#0b8fac] transition-all duration-300 hover:bg-[#0b8fac] hover:text-white">
+  //         Login
+  //       </button>
+  //      </Link>
+
+  //        <Link href={'/sign-up'} className="w-full">
+  //         <button className=" w-full rounded-full bg-linear-to-r from-[#0b8fac] to-purple-600 py-2 font-semibold text-white shadow-lg">
+  //           Register
+  //         </button>
+  //        </Link>
