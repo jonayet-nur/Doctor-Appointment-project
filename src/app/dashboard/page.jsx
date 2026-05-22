@@ -1,85 +1,3 @@
-// 'use client'
-
-// import {
-//   CalendarDays,
-//   Edit,
-//   Trash2,
-//   User,
-// } from 'lucide-react'
-
-// const DashboardPage = async() => {
-//     const response = await fetch('http://localhost:5000/bookings')
-//     const appointments = await response.json()
-
-//   const {_id,pname,dname,email,phone,gender,date,time}= appointments
-
-//   return (
-//     <>
-//       {/* Header */}
-//       <div className="mb-8">
-//         <h1 className="text-3xl font-bold text-gray-900">
-//           Welcome back
-//         </h1>
-
-//         <p className="text-gray-500 mt-2">
-//           Manage your healthcare appointments easily.
-//         </p>
-//       </div>
-
-//       {/* Cards */}
-//       <div className="flex flex-col gap-5">
-//         {appointments.map((item) => (
-//           <div
-//             key={item._id}
-//             className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6"
-//           >
-//             <h2 className="text-xl font-bold text-[#0f766e]">
-//               {item.dname}
-//             </h2>
-
-//             <p className="text-sm text-gray-500 mt-1">
-//               {item.specialty}
-//             </p>
-
-//             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6">
-
-//               <div className="flex items-center gap-3">
-//                 <User size={18} />
-//                 <p>{item.patient}</p>
-//               </div>
-
-//               <div className="flex items-center gap-3">
-//                 <CalendarDays size={18} />
-//                 <p>{item.date}</p>
-//               </div>
-
-//               <div className="flex items-center gap-3">
-//                 <CalendarDays size={18} />
-//                 <p>{item.time}</p>
-//               </div>
-//             </div>
-
-//             <div className="flex gap-3 mt-6">
-//               <button className="flex items-center gap-2 bg-gray-100 px-5 py-3 rounded-xl">
-//                 <Edit size={16} />
-//                 Update
-//               </button>
-
-//               <button className="flex items-center gap-2 bg-red-500 text-white px-5 py-3 rounded-xl">
-//                 <Trash2 size={16} />
-//                 Delete
-//               </button>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </>
-//   )
-// }
-
-// export default DashboardPage
-
-
 
 'use client'
 
@@ -87,10 +5,13 @@ import { useEffect, useState } from 'react'
 import {
   CalendarDays,
   Edit,
+  Mail,
+  Phone,
   Trash2,
   User,
 } from 'lucide-react'
 import { DeleteBookingAlert } from '@/Components/DeleteBookingAlert'
+import UpdateAppointmentModal from '@/Components/UpdateAppoointment '
 
 const DashboardPage = () => {
   const [appointments, setAppointments] = useState([])
@@ -198,6 +119,20 @@ const DashboardPage = () => {
           </div>
 
           <div className="flex items-center gap-3">
+  <Phone size={18} />
+  <p>Phone: {item.phone}</p>
+</div>
+
+<div className="flex items-center gap-3">
+  <User size={18} />
+  <p>Gender: {item.gender}</p>
+</div>
+<div className="flex items-center gap-3">
+  <Mail size={18} />
+  <p>Email: {item.email}</p>
+</div>
+
+          <div className="flex items-center gap-3">
             <CalendarDays size={18} />
             <p>Date: {item.date}</p>
           </div>
@@ -209,10 +144,9 @@ const DashboardPage = () => {
         </div>
 
         <div className="mt-6 flex gap-3">
-          <button className="flex items-center gap-2 rounded-xl bg-gray-100 px-5 py-3">
-            <Edit size={16} />
-            Update
-          </button>
+        {/* update button components */}
+        <UpdateAppointmentModal item={item}  appointments={appointments}
+  setAppointments={setAppointments}></UpdateAppointmentModal>
 
           <DeleteBookingAlert bookingId={item._id} />
         </div>

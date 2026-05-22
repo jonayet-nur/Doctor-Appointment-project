@@ -2,6 +2,7 @@
 
 import {AlertDialog, AlertDialogTrigger, Button} from "@heroui/react";
 import { Trash2 } from "lucide-react";
+import { toast } from "react-toastify";
 
 export function DeleteBookingAlert({bookingId}) {
     const handleDelete = async()=>{
@@ -12,8 +13,21 @@ export function DeleteBookingAlert({bookingId}) {
                 }
         })
         const data = await response.json()
+         if(response.ok){
+            toast.success("Booking deleted successfully!")
+        }
         window.location.reload()
         console.log(data)
+    //       if (response.ok) {
+    //   toast.success("Booking deleted successfully!");
+
+    //   // 4 second পরে reload হবে
+    //   setTimeout(() => {
+    //     window.location.reload();
+    //   }, 4000);
+    // }
+
+       
     }
   return (
     <AlertDialog>
@@ -40,7 +54,7 @@ export function DeleteBookingAlert({bookingId}) {
             <AlertDialog.CloseTrigger />
             <AlertDialog.Header>
               <AlertDialog.Icon status="danger" />
-              <AlertDialog.Heading>Delete project permanently?</AlertDialog.Heading>
+              <AlertDialog.Heading>Delete Booking permanently?</AlertDialog.Heading>
             </AlertDialog.Header>
             {/* <AlertDialog.Body>
               <p>
@@ -53,7 +67,7 @@ export function DeleteBookingAlert({bookingId}) {
                 Cancel
               </Button>
               <Button onClick={handleDelete} type="submit" variant="danger">
-                Delete Project
+                Delete Booking
               </Button>
             </AlertDialog.Footer>
           </AlertDialog.Dialog>
