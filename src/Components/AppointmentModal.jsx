@@ -26,7 +26,7 @@ export default function AppointmentModal({ doctor }) {
         const data = Object.fromEntries(formData.entries());
         console.log(data)
         try {
-      const response = await fetch('http://localhost:5000/bookings', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",

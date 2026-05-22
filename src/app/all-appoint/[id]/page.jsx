@@ -1,21 +1,4 @@
 
-// const AllAppointDetailsPage = async({params}) => {
-//   const {id} = await params
-//   const res= await fetch(`http://localhost:5000/all-appointment/${id}`)
-//   const allAppoint = await res.json()
-//   console.log(allAppoint)
-//   return (
-//     <div>details
-//       <div>
-
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default AllAppointDetailsPage
-
-
 
 import Image from "next/image";
 import {
@@ -32,7 +15,7 @@ const AllAppointDetailsPage = async ({ params }) => {
   const { id } = await params;
 
   const res = await fetch(
-    `http://localhost:5000/all-appointment/${id}`
+    `${process.env.NEXT_PUBLIC_API_URL}/all-appointment/${id}`
     // {
     //   cache: "no-store",
     // }

@@ -19,7 +19,7 @@ const DashboardPage = () => {
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const response = await fetch('http://localhost:5000/bookings')
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/bookings`)
         const data = await response.json()
         setAppointments(data)
       } catch (error) {

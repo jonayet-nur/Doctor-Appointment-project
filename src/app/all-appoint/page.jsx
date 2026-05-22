@@ -3,7 +3,7 @@ import DoctorCard from "@/ui/DoctorCard"
 
 
 const AllAppointPage = async () => {
-    const res = await fetch('http://localhost:5000/all-appointment')
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/all-appointment`)
     const allAppoint = await res.json()
     console.log(allAppoint)
 

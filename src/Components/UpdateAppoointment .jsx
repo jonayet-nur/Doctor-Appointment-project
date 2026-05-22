@@ -49,7 +49,7 @@ export default function UpdateAppointmentModal({ item ,appointments,
 
     try {
       const response = await fetch(
-        `http://localhost:5000/bookings/${_id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/bookings/${_id}`,
         {
           method: "PATCH",
           headers: {

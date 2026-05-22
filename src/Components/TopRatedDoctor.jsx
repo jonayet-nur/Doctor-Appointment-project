@@ -2,7 +2,7 @@ import DoctorCard from "@/ui/DoctorCard"
 
 
 const TopRatedDoctor = async() => {
-    const res = await fetch('http://localhost:5000/top-doctors')
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/top-doctors`)
     const topDoctors = await res.json()
     console.log(topDoctors)
   return (
