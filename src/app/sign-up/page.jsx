@@ -40,17 +40,29 @@ export default function SignUpPage() {
     })
    
 
-     if(!error) {
-       toast.success('SignUp Successfully')
-        // router.push('/')
+    //  if(!error) {
+    //    toast.success('SignUp Successfully')
+    //     // router.push('/')
          
-    }
+    // }
 
     console.log({data, error})
-    if(data){
-       redirect('/login')                                                          
-    }
-   
+    // if(data){
+    //    redirect('/login')
+                                                        
+    // }
+      
+
+  if (data) {
+    toast.success("Signup Successfully");
+
+    // logout user immediately
+    await authClient.signOut();
+
+    // redirect to login page
+    router.push("/login");
+  }
+  
   };
 
 
@@ -58,7 +70,9 @@ export default function SignUpPage() {
   await authClient.signIn.social({
     provider: "google",
   });
+
 };
+
   return (
     
     <Card className="max-w-md  md:mx-auto my-10 p-8 shadow-xl border rounded-2xl mx-5">

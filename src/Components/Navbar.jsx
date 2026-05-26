@@ -7,9 +7,11 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import { Avatar, Button } from "@heroui/react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+
 
 export default function Navbar() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
 
   const pathname = usePathname();
@@ -22,6 +24,7 @@ export default function Navbar() {
 
   const handleSignOut = async () => {
     await authClient.signOut();
+    router.refresh();
   };
 
   // active link style
